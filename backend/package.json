@@ -1,0 +1,18 @@
+{
+  "name": "rate_the_policy_server",
+  "version": "1.0.0",
+  "description": "Server for Rate The Policy Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "[Amit Pal, Gaurav]",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "http": "^0.0.1-security",
+    "mysql2": "^3.10.1"
+  }
+}
