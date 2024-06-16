@@ -9,4 +9,5 @@ const voteRoutes = require("./voteRoutes");
 userRouter.post('/signup', userController.signup);
 userRouter.use('/vote', voteRoutes);
 
+userRouter.post('/login', userController.login);
 module.exports = userRouter;
