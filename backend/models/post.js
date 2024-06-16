@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { UUID } = require('sequelize');
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
