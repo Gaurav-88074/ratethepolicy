@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+const mongoose = require('mongoose');
 
 
 const pool = mysql.createPool({
