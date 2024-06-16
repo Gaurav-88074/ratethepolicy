@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 const Org = require("./models/org");
 //-------------------------------------
 const adminRoutes = require('./routes/adminRoutes');
+const userRoutes = require("./routes/userRoutes");
 //-------------------------------------
 app.use(cors());
 app.use(bodyParser.json()); //application json
@@ -32,12 +33,13 @@ app.use((req, res, next) => {
 });
 app.use('/', adminRoutes);
 app.use('/auth', adminRoutes);
+app.use('/user', userRoutes);
 
 
 
 mongoose
     .connect(
-        "mongodb+srv://ratethepolicy2024:F4iFy3VWS56rb8ht@cluster0.orncmrl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+        process.env.MONGODB_CONNECTION_STRING
     )
     .then(() => {
         console.log("DB connected");
