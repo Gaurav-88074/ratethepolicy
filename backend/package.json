@@ -4,15 +4,26 @@
   "description": "Server for Rate The Policy Project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "[Amit Pal, Gaurav]",
   "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3"
+  },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "express": "^4.19.2",
-    "http": "^0.0.1-security",
-    "mysql2": "^3.10.1"
+    "jsonwebtoken": "^9.0.2",
+    "mssql": "^10.0.2",
+    "mysql2": "^3.9.1",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.3",
+    "sequelize": "^6.36.0",
+    "socket.io": "^4.7.4",
+    "tedious": "^17.0.0"
   }
 }
