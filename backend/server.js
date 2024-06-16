@@ -7,7 +7,6 @@ const port = process.env.PORT;
 const app = express();
 //------------------------------------
 const mongoose = require("mongoose");
-const Org = require("./models/org");
 //-------------------------------------
 const adminRoutes = require('./routes/adminRoutes');
 const userRoutes = require("./routes/userRoutes");
