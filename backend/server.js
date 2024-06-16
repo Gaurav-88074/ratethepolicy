@@ -9,6 +9,8 @@ const app = express();
 const mongoose = require("mongoose");
 const Org = require("./models/org");
 //-------------------------------------
+const adminRoutes = require('./routes/adminRoutes');
+//-------------------------------------
 app.use(cors());
 app.use(bodyParser.json()); //application json
 app.use((req, res, next) => {
@@ -28,38 +30,10 @@ app.use((req, res, next) => {
     // "Content-Type": "application/json",
     next();
 });
-// app.use('/auth', authRoutes);
-app.get('/', (req, res, next) => {
-    res.status(200).json([
-        {
-            id: 1,
-            user: "Gaurav",
-        },
-        {
-            id: 2,
-            user: "Amit",
-        },
-    ]);
-});
-// app.get('/insert', (req, res, next) => {
-//     const orgObj = {
-//         _id: '5d7b12c9-8153-47b8-969b-318d4b44304e',
-//         organizationName: "STARK",
-//         organizationPassword: "password",
-//         organizationCode: 3000,
-//     }
-//     const orgObject = new Org(orgObj);
-//     orgObject.save().then(()=>{
-//         console.log("inserted");
-//     }).catch((er)=>{
-//         console.log(er);
-//     })
-//     res.status(200).json([
-//         {
-//             message: "invoked"
-//         }
-//     ]);
-// });
+app.use('/', adminRoutes);
+app.use('/auth', adminRoutes);
+
+
 
 mongoose
     .connect(
