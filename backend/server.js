@@ -31,6 +31,7 @@ app.use((req, res, next) => {
     // "Content-Type": "application/json",
     next();
 });
+//routing
 app.use('/', adminRoutes);
 app.use('/auth', adminRoutes);
 app.use('/user', userRoutes);
