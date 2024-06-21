@@ -1,4 +1,4 @@
-const { UUIDV4 } = require("sequelize");
+
 const Post = require("../models/post");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");

@@ -13,10 +13,12 @@ const commentSchema = new Schema({
     },
     postId:{
         type : String,
+        ref : 'Post',
         required : true,
     },
     userId:{
         type : String,
+        
         required : true,
     }
 

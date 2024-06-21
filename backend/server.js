@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const { createServer } = require("http");
 const cors = require("cors");
 require("dotenv").config();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const app = express();
 //------------------------------------
 const mongoose = require("mongoose");
@@ -39,7 +39,8 @@ app.use('/user', userRoutes);
 
 mongoose
     .connect(
-        process.env.MONGODB_CONNECTION_STRING
+        process.env.MONGODB_CONNECTION_STRING ||
+        'mongodb+srv://ratethepolicy2024:F4iFy3VWS56rb8ht@cluster0.orncmrl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
     )
     .then(() => {
         console.log("DB connected");

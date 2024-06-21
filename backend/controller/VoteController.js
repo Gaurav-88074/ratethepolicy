@@ -16,6 +16,15 @@ async function getDummyVoteData(req, res, next) {
         },
     ]);
 };
+async function fetchAllVotes(req, res, next) {
+    // useless
+    Vote.find()
+    .then((votes)=>{
+        res.status(200).json(votes);
+    }).catch((error)=>{
+        res.status(401).json(error);
+    })
+};
 async function insertNewVote(req, res, next) {
     const {userId,postId,value} = req.body;
     console.log(req.body);
@@ -35,13 +44,18 @@ async function insertNewVote(req, res, next) {
 
 }
 async function deleteExistingVote(req, res, next) {
-    res.status(200).json([
-        {message : 'deleted'}
-    ]);
+    const voteId = req.body.voteId; 
+    Vote.findByIdAndDelete(voteId)
+    .then((x)=>{
+        res.status(200).json(x);
+    }).catch((error)=>{
+        res.status(401).json(error);
+    })
 
 }
 module.exports ={
     getDummyVoteData,
     insertNewVote,
-    deleteExistingVote
+    deleteExistingVote,
+    fetchAllVotes
 }

@@ -10,6 +10,15 @@ async function getDummyCommentData(req, res, next) {
         },
     ]);
 };
+async function fetchAllComments(req, res, next) {
+    // populate('postId')
+    Comment.find()
+    .then((comments)=>{
+        res.status(200).json(comments);
+    }).catch((error)=>{
+        res.status(401).json(error);
+    })
+};
 async function insertNewComment(req, res, next) {
     const {userId,postId,message} = req.body;
     // console.log(req.body);
@@ -29,13 +38,18 @@ async function insertNewComment(req, res, next) {
 
 }
 async function deleteExistingComment(req, res, next) {
-    res.status(200).json([
-        {message : 'deleted'}
-    ]);
+    const commentId = req.body.commentId; 
+    Comment.findByIdAndDelete(commentId)
+    .then((x)=>{
+        res.status(200).json(x);
+    }).catch((error)=>{
+        res.status(401).json(error);
+    })
 
 }
 module.exports ={
     getDummyCommentData,
     insertNewComment,
-    deleteExistingComment
+    deleteExistingComment,
+    fetchAllComments
 }

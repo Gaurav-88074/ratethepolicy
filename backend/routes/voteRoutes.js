@@ -4,6 +4,7 @@ const voteRouter = express.Router();
 const voteController = require("../controller/VoteController");
 
 voteRouter.get('/', voteController.getDummyVoteData);
+voteRouter.get('/retrive', voteController.fetchAllVotes);
 voteRouter.post('/upvote', voteController.insertNewVote);
 voteRouter.post('/downvote', voteController.insertNewVote);
 voteRouter.post('/deletevote', voteController.deleteExistingVote);
