@@ -1,8 +1,10 @@
 import React from 'react'
-
+import classes from "./Dashboard.module.css";
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    //note:
+    //this is how we use css in our project
+    <div className={classes.rough}>Dashboard</div>
   )
 }
 
