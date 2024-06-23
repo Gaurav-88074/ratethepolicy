@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.extras{
+    height: 100vh;
+    width: 20%;
+    /* background-color: black; */
+}
